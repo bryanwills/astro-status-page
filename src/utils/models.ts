@@ -64,7 +64,7 @@ export const monitorMethods = ["GET", "POST", "HEAD"] as const;
 const monitorSchema = z.object({
   id: z.number(),
   periodicity: periodicityEnum,
-  url: z.string().url(),
+  url: z.string(),
   regions: z.array(z.enum(flyRegions)),
   name: z.string().nullable(),
   description: z.string().nullable(),
