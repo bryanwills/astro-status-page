@@ -5,11 +5,11 @@ import { Bar } from './bar';
 interface Props extends Monitor {}
 
 const { name, id,  description } = Astro.props;
-const env = Astro.locals.runtime.env;
+const API_KEY = import.meta.env.API_KEY;
 
 const response = await fetch(`https://api.openstatus.dev/v1/monitor/${id}/summary`, {
   headers: {
-    "x-openstatus-key": env.API_KEY,
+    "x-openstatus-key": API_KEY,
     'Cache-Control': 'max-age=600', // Cache for 10 minutes
   },
 });
